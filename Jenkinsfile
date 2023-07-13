@@ -23,7 +23,7 @@ pipeline {
                     sh 'pwd'
 		    sh '/home/$USER/aep/sdk-3.22/toolchain-F3Bv2/sysroots/i686-pokysdk-linux/usr/bin/qt5/qmake ../../Utilities/TestJenkins.pro -spec f3bv2-aep-cortexa9-g++'
 		    sh '/usr/bin/make'
-		    sh 'cp TicketReader ../../bin'
+		    sh 'cp TestJenkins ../../bin'
                 }
 		sh 'pwd'
 		echo 'Finished building TicketReader ...'
