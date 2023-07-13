@@ -29,6 +29,16 @@ pipeline {
 		echo 'Finished building TicketReader ...'
             }
         }
+	stage('Build-Utilities') {
+            steps {
+		echo 'Building TicketReader ...'
+                sh 'pwd'
+		sh 'cp bin/TestJenkins binary2'
+                }
+		sh 'pwd'
+		echo 'Finished building TicketReader ...'
+            }
+        }
         stage('Build-Artifacts') {
             steps {
 		echo 'Copying Build-Artifacts ...'
