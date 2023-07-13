@@ -34,7 +34,6 @@ pipeline {
 		echo 'Building TicketReader ...'
                 sh 'pwd'
 		sh 'cp bin/TestJenkins binary2'
-                }
 		sh 'pwd'
 		echo 'Finished building TicketReader ...'
             }
