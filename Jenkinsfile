@@ -18,7 +18,7 @@ pipeline {
             steps {
 		echo 'Building TicketReader ...'
                 sh 'pwd'
-		sh 'surce /home/$USER/aep/sdk-3.22/toolchain-F3Bv2/environment-setup-cortexa9hf-neon-poky-linux-gnueabi'
+		sh 'source /home/$USER/aep/sdk-3.22/toolchain-F3Bv2/environment-setup-cortexa9hf-neon-poky-linux-gnueabi'
 		dir('Build-Release/build-TicketReader-sdk3_22_F3Bv2-Release') {
                     sh 'pwd'
 		    sh '/home/$USER/aep/sdk-3.22/toolchain-F3Bv2/sysroots/i686-pokysdk-linux/usr/bin/qt5/qmake ../../Utilities/TestJenkins.pro -spec f3bv2-aep-cortexa9-g++'
@@ -41,6 +41,7 @@ pipeline {
 	stage('Deploy') {
             steps {
 		echo 'Build-Artifacts ...'
+		input "Does the staging environment look ok?"
 	    }
 	}   
     }
