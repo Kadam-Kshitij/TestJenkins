@@ -38,14 +38,16 @@ pipeline {
 		echo 'Finished copying artifacts ...'
             }
         }
-	stage('Clean-Up') {
-		post {
-        	    always {
-            	    echo 'Starting cleanup ...'
-	    	    sh 'pwd'
-	    	    echo 'TODO...'
-        	    }
-    	    	}
-	}
+	stage('Deploy') {
+            steps {
+		echo 'Build-Artifacts ...'
+	    }
+	}   
+    }
+    post {
+        always {
+	    echo 'Starting cleanup ...'
+	    cleanWs()
+        }
     }
 }
