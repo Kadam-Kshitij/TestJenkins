@@ -40,7 +40,7 @@ pipeline {
         }
 	stage('Archive-Artifacts') {
 	    steps {
-		archiveArtifacts artifacts: 'bin'
+		archiveArtifacts artifacts: 'bin/*'
 	    }
 	}
 	stage('Deploy') {
