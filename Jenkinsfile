@@ -38,12 +38,14 @@ pipeline {
 		echo 'Finished copying artifacts ...'
             }
         }
-    }
-    post {
-        always {
-            echo 'Starting cleanup ...'
-	    sh 'pwd'
-	    echo 'TODO...'
-        }
+	stage('Clean-Up') {
+		post {
+        	    always {
+            	    echo 'Starting cleanup ...'
+	    	    sh 'pwd'
+	    	    echo 'TODO...'
+        	    }
+    	    	}
+	}
     }
 }
