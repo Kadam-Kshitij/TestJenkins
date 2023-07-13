@@ -38,6 +38,11 @@ pipeline {
 		echo 'Finished copying artifacts ...'
             }
         }
+	stage('Archive-Artifacts') {
+	    steps {
+		archiveArtifacts artifacts: 'bin'
+	    }
+	}
 	stage('Deploy') {
             steps {
 		echo 'Build-Artifacts ...'
