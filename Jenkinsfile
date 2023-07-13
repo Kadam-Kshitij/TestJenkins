@@ -33,7 +33,8 @@ pipeline {
             steps {
 		echo 'Building TicketReader ...'
                 sh 'pwd'
-		sh 'cp bin/TestJenkins binary2'
+		sh 'cp bin/TestJenkins bin/binary2'
+		sh 'ls bin'
 		sh 'pwd'
 		echo 'Finished building TicketReader ...'
             }
@@ -55,7 +56,6 @@ pipeline {
 	stage('Deploy') {
             steps {
 		echo 'Build-Artifacts ...'
-		input "Does the staging environment look ok?"
 	    }
 	}   
     }
