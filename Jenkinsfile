@@ -7,26 +7,10 @@ pipeline {
                 script { 
                     properties([
                         parameters([
-                            choice(
-                                choices: ['ONE', 'TWO'], 
-                                name: 'PARAMETER_01'
-                            ),
                             booleanParam(
-                                defaultValue: true, 
+                                defaultValue: false, 
                                 description: '', 
-                                name: 'BOOLEAN'
-                            ),
-                            text(
-                                defaultValue: '''
-                                this is a multi-line 
-                                string parameter example
-                                ''', 
-                                 name: 'MULTI-LINE-STRING'
-                            ),
-                            string(
-                                defaultValue: 'scriptcrunch', 
-                                name: 'STRING-PARAMETER', 
-                                trim: true
+                                name: 'DEPLOY_BUILD'
                             )
                         ])
                     ])
@@ -85,8 +69,11 @@ pipeline {
 	    }
 	}
 	stage('Deploy') {
+	    when {
+                expression { params.DEPLOY_BUILD == true }
+            }
             steps {
-		echo 'Build-Artifacts ...'
+		echo 'Deploy-Artifacts ...'
 	    }
 	}   
     }
